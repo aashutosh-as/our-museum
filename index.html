@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Museum - Aashu & Radhika</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; background: #09090d; color: white;
+  font-family: Arial, sans-serif; text-align: center; overflow-x: hidden;
+}
+.intro { padding: 65px 15px 35px; }
+h1 { font-family: Georgia, serif; font-size: clamp(42px, 10vw, 65px); }
+.names { color: #e8b9d1; font-size: 20px; }
+.gallery { display: flex; justify-content: center; gap: 12px; padding: 15px; }
+.frame {
+  width: 29%; max-width: 210px; height: 190px; border: 1px solid #b78ba5;
+  background: linear-gradient(145deg,#342535,#17121b); display: flex;
+  flex-direction: column; justify-content: center; align-items: center; border-radius: 8px;
+}
+.art { font-size: 55px; }
+.caption { margin-top: 20px; color: #e8cbdc; font-size: 12px; }
+.proposal {
+  background: #fff0f6; color: #49303e; width: 90%; max-width: 500px;
+  margin: 30px auto; padding: 25px 15px; border-radius: 20px;
+}
+.bear { font-size: 55px; }
+.proposal h2 { font-family: Georgia, serif; }
+button {
+  border: none; padding: 13px 30px; border-radius: 30px; font-size: 16px;
+  cursor: pointer; margin: 8px;
+}
+#yes { background: #df4d8b; color: white; }
+#no { background: #e5dce2; color: #49303e; }
+.footer { color: #c5a8b7; padding: 20px; }
+.heart {
+  position: fixed; bottom: -30px; animation: float 5s linear forwards;
+  pointer-events: none;
+}
+@keyframes float { to { transform: translateY(-110vh); opacity: 0; } }
+#success {
+  display: none; position: fixed; inset: 0; background: #09090df5;
+  align-items: center; justify-content: center; flex-direction: column; padding: 20px;
+}
+#success h1 { color: pink; }
+@media (max-width: 420px) {
+  .frame { height: 150px; }
+  .art { font-size: 42px; }
+  .caption { font-size: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="intro">
+  <h1>Our Museum</h1>
+  <p class="names">From Aashu ♡ To Radhika</p>
+  <p>A little place made with love ❤️</p>
+</div>
+<div class="gallery">
+  <div class="frame"><div class="art">🌷</div><div class="caption">Our Beginning</div></div>
+  <div class="frame"><div class="art">🧸</div><div class="caption">My Favourite Person</div></div>
+  <div class="frame"><div class="art">💗</div><div class="caption">Our Forever</div></div>
+</div>
+<div class="proposal">
+  <div class="bear">🐻‍❄️</div>
+  <h2>Will you marry me? 🥺</h2>
+  <p>Radhika, will you be my today, tomorrow and every forever?</p>
+  <button id="yes">Yes 💗</button>
+  <button id="no">No</button>
+</div>
+<div class="footer">Made with love, from Aashu to Radhika ♡</div>
+<div id="success">
+  <h1>It's a Forever YES! 💍</h1>
+  <h2>Aashu ❤️ Radhika</h2>
+  <p>One love, one beautiful story.</p>
+  <button id="replay">Replay 💗</button>
+</div>
+<script>
+function heart() {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💗";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = "25px";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 5000);
+}
+setInterval(heart, 600);
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+let scale = 1;
+no.onclick = function() {
+  scale += 0.2;
+  yes.style.transform = `scale(${scale})`;
+  no.innerText = "Think again 🥺";
+};
+yes.onclick = function() {
+  document.getElementById("success").style.display = "flex";
+};
+document.getElementById("replay").onclick = function() {
+  location.reload();
+};
+</script>
+</body>
+</html>
